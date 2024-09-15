@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 
 const App = () => {
   return (
@@ -20,10 +19,14 @@ const ProductSection = () => {
     { id: 2, name: "Microfiber Cloth", price: "$7.99", img: "https://via.placeholder.com/150" },
     { id: 3, name: "Screen Protector", price: "$15.99", img: "https://via.placeholder.com/150" },
     { id: 4, name: "Anti-Glare Film", price: "$9.99", img: "https://via.placeholder.com/150" },
+    { id: 1, name: "Screen Clean Spray", price: "$12.99", img: "https://via.placeholder.com/150" },
+    { id: 2, name: "Microfiber Cloth", price: "$7.99", img: "https://via.placeholder.com/150" },
+    { id: 3, name: "Screen Protector", price: "$15.99", img: "https://via.placeholder.com/150" },
+    { id: 4, name: "Anti-Glare Film", price: "$9.99", img: "https://via.placeholder.com/150" },
   ];
 
   return (
-    <div id="products" className="py-10 bg-gray-100 ">
+    <div id="products" className="pb-24 pt-10 bg-pink-100 ">
       <h2 className="text-3xl font-semibold text-center mb-6 ">Our Products</h2>
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-28">
         {products.map((product) => (

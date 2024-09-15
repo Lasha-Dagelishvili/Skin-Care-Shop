@@ -82,8 +82,8 @@ const signup = () => {
     "India",
   ];
 
-  return (
-    <div className="max-w-xl mx-auto mt-10 bg-gray-100 p-8 rounded-lg shadow-md">
+  return (<div className="bg-pink-100 pt-24 pb-24">
+    <div className="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md">
       <form onSubmit={formik.handleSubmit}>
         <div className="flex justify-center mb-5 text-gray-700 font-bold text-4xl">
           Registration
@@ -341,7 +341,7 @@ const signup = () => {
         </div>
       </form>
       {message && <p className="mt-4 text-center">{message}</p>}
-    </div>
+    </div></div>
   );
 };
 

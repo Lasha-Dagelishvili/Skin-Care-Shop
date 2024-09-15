@@ -39,7 +39,7 @@ const signIn = () => {
 
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-pink-100">
       <div className="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
         <h2 className="flex justify-center text-2xl font-bold mb-2">Sign in</h2>
         <form onSubmit={formik.handleSubmit}>
@@ -91,7 +91,7 @@ const signIn = () => {
 
           <div className="mb-4">
             <button
-              className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="w-full bg-amber-800 hover:bg-amber-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
             >
               Sign In
@@ -106,7 +106,7 @@ const signIn = () => {
 
         <div className="mb-4">
           <button
-            className="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="w-full bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="button"
             onClick={() => router.push("/signup")}
           >
