@@ -5,52 +5,7 @@ import { registrationSchema } from "../lib/validation";
 import { useRouter } from "next/navigation";
 
 const signup = () => {
-  const [message, setMessage] = useState("");
-
-  const router = useRouter();
-
-  const formik = useFormik({
-    initialValues: {
-      firstName: "",
-      lastName: "",
-      password: "",
-      confirmPassword: "",
-      day: 0,
-      month: "",
-      year: 0,
-      phoneNumber: 0,
-      email: "",
-      street: "",
-      city: "",
-      region: "",
-      postal: 0,
-      country: "",
-    },
-    validationSchema: registrationSchema,
-    onSubmit: async (values) => {
-      try {
-        const res = await fetch("/api/createUser", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(values),
-        });
-
-        const data = await res.json();
-        if (data.success) {
-          setMessage(
-            "Registration successful! Please check your email to verify your account."
-          );
-        } else {
-          setMessage("Registration failed: " + data.message);
-        }
-      } catch (error) {
-        setMessage("Registration failed: " + error.message);
-      }
-    },
-  });
-
+  
   const days = Array.from({ length: 31 }, (_, i) => ++i);
   const years = Array.from({ length: 2024 - 1950 + 1 }, (_, i) => 1950 + i);
   const months = [
@@ -229,7 +184,7 @@ const signup = () => {
             value={formik.values.phoneNumber}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
-            placeholder="(000) 000-0000"
+            placeholder="(+995) 000-000"
           />
           {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
             <div className="text-red-500 text-xs">

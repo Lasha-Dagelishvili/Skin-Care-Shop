@@ -7,37 +7,6 @@ import { useRouter } from "next/navigation";
 
 const signIn = () => {
 
-  const router = useRouter();
-
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validationSchema: loginSchema,
-    onSubmit: async (values) => {
-      try {
-        const res = await fetch("/api/authenticate", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(values),
-        });
-
-        const data = await res.json();
-        if (data.success) {
-          router.push("/upload");
-        } else {
-          setMessage("Log In Failed: " + data.message);
-        }
-      } catch (error) {
-        setMessage("Log In Failed: " + error.message);
-      }
-    },
-  });
-
-
   return (
     <div className="flex items-center justify-center min-h-screen bg-pink-100">
       <div className="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
