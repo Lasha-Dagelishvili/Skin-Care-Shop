@@ -2,6 +2,7 @@
 import Navbar from "./components/navbar";
 import App from "./components/app";
 import { useRouter } from "next/navigation";
+import Footer from "./components/footer";
 
 export default function Home() {
 
@@ -9,6 +10,7 @@ export default function Home() {
     <div>
       <Navbar />
       <App />
+      <Footer />
     </div>
   );
 }

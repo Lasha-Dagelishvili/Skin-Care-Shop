@@ -36,7 +36,7 @@ const signup = () => {
 
   const router = useRouter();
   return (
-    <div className="bg-pink-100 pt-24 pb-24">
+    <div className="bg-gray-300 pt-24 pb-24">
       <div className="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md">
         <form>
           <div className="flex justify-center mb-5 text-gray-700 font-bold text-4xl">

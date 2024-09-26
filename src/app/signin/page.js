@@ -5,7 +5,7 @@ const signIn = () => {
   const router = useRouter();
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-pink-100">
+    <div className="flex items-center justify-center min-h-screen bg-gray-300">
       <div className="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
         <h2 className="flex justify-center text-2xl font-bold mb-2">Sign in</h2>
         <form>
