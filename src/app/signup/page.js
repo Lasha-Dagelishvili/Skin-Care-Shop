@@ -38,7 +38,7 @@ const signup = () => {
   return (
     <div className="bg-gray-300 pt-24 pb-24">
       <div className="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md">
-        <form>
+        <form className="text-black">
           <div className="flex justify-center mb-5 text-gray-700 font-bold text-4xl">
             Registration
           </div>
