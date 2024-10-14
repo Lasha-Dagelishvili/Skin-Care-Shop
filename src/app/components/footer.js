@@ -2,14 +2,13 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 py-10 mt-10">
+    <footer className="bg-gray-100 py-5 mt-10">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-5">
         <div>
           <h2 className="text-2xl font-semibold text-gray-900">SkinCare</h2>
           <p className="mt-3 text-gray-600">
             Dedicated to providing the best skin care products to help you achieve healthy, glowing skin.
           </p>
-          <p className="mt-2 text-gray-600">© {new Date().getFullYear()} SkinCare. All Rights Reserved.</p>
         </div>
 
         <div>
@@ -32,6 +31,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
+      <p className="mt-2 pt-4 border-t-2 border-gray-500 flex justify-center text-gray-600">© {new Date().getFullYear()} SkinCare. All Rights Reserved.</p>
     </footer>
   );
 };
