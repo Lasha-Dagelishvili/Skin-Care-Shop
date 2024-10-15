@@ -2,28 +2,32 @@ import { NextResponse } from "next/server";
 import pool from "@/app/lib/connection";
 
 export async function GET(req) {
-  const { searchParams } = new URL(req.url);
-  const query = searchParams.get("query") || "";
-  const category = searchParams.get("category") || "";
-  const subCategory = searchParams.get("subCategory") || "";
-
   try {
-    let sql = `SELECT id, title, description, image, price FROM clothes WHERE title LIKE ?`;
-    let values = [`%${query}%`];
+    const { searchParams } = new URL(req.url);
+    const page = parseInt(searchParams.get("page")) || 1;
+    const limit = parseInt(searchParams.get("limit")) || 10;
 
-    if (category) {
-      sql += ` AND category = ?`;
-      values.push(category);
-    }
+    const offset = (page - 1) * limit;
 
-    const [results] = await pool.query(sql, values);
+    const sql = `SELECT * FROM products LIMIT ${limit} OFFSET ${offset}`;
+    const [results] = await pool.query(sql);
 
     const products = results.map((result) => ({
       ...result,
       image: result.image.toString("base64"),
     }));
 
-    return NextResponse.json(products);
+    const totalResults = await pool.query(
+      "SELECT COUNT(*) as count FROM products"
+    );
+    const totalProducts = totalResults[0][0].count;
+
+    return NextResponse.json({
+      products,
+      totalProducts,
+      currentPage: page,
+      totalPages: Math.ceil(totalProducts / limit),
+    });
   } catch (error) {
     console.error(error);
     return NextResponse.json(
