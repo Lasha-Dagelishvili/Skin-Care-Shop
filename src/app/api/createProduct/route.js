@@ -1,32 +1,15 @@
 import { NextResponse } from "next/server";
-import pool from "@/app/lib/connection";
+import pool from "@/lib/connection";
 
 export async function POST(req) {
   try {
     const data = await req.formData();
     const file = data.get("file");
-    const title = data.get("title");
+    const productName = data.get("title");
     const description = data.get("description");
-    const category = data.get("category");
-    const brand = data.get("brand");
-    const type = data.get("type");
-    const condition = data.get("condition");
-    const color = data.get("color");
-    const stock = data.get("stock");
     const price = data.get("price");
 
-    if (
-      !file ||
-      !title ||
-      !description ||
-      !category ||
-      !brand ||
-      !type ||
-      !condition ||
-      !color ||
-      !stock ||
-      !price
-    ) {
+    if (!file || !productName || !description || !price) {
       return NextResponse.json(
         { success: false, message: "Missing required fields" },
         { status: 400 }
@@ -37,21 +20,10 @@ export async function POST(req) {
     const buffer = Buffer.from(bytes);
 
     const query = `
-      INSERT INTO clothes (title, description, image, category, brand, type, conditio, color, stock, price)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO products (productName, price, description, image)
+      VALUES (?, ?, ?, ?,)
     `;
-    const values = [
-      title,
-      description,
-      buffer,
-      category,
-      brand,
-      type,
-      condition,
-      color,
-      stock,
-      price,
-    ];
+    const values = [productName, price, description, buffer];
 
     const [result] = await pool.query(query, values);
 
