@@ -88,7 +88,9 @@ const Navbar = () => {
   return (
     <nav className="bg-sky-900 text-white p-4 w-full">
       <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-2xl font-bold ml-12 cursor-pointer">SkinCare</h1>
+        <Link href={"/"} className="text-2xl font-bold ml-12 cursor-pointer">
+          SkinCare
+        </Link>
         <ul className="flex space-x-6">
           {isLoggedIn ? (
             <li className="relative">

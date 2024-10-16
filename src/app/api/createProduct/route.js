@@ -5,7 +5,7 @@ export async function POST(req) {
   try {
     const data = await req.formData();
     const file = data.get("file");
-    const productName = data.get("title");
+    const productName = data.get("productName");
     const description = data.get("description");
     const price = data.get("price");
 
@@ -21,7 +21,7 @@ export async function POST(req) {
 
     const query = `
       INSERT INTO products (productName, price, description, image)
-      VALUES (?, ?, ?, ?,)
+      VALUES (?, ?, ?, ?)
     `;
     const values = [productName, price, description, buffer];
 
